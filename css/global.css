@@ -1,0 +1,397 @@
+/* ========================================
+   GLOBAL STYLES
+   Foundation CSS for NFL Injury Recovery Research Site
+   ========================================= */
+
+/* ========================================
+   CSS RESET & BASE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: var(--white);
+}
+
+/* ========================================
+   CSS VARIABLES
+   Design tokens for consistent theming
+   ========================================= */
+:root {
+    /* Brand Colors */
+    --primary-blue: #002244;
+    --secondary-blue: #0066cc;
+    --primary-red: #D50A0A;
+    --accent-red: #FF1744;
+    
+    /* Neutral Colors */
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --mid-gray: #cccccc;
+    --dark-gray: #333333;
+    --text-dark: #1a1a1a;
+    --black: #000000;
+    
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Spacing System */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    --spacing-2xl: 80px;
+    
+    /* Layout */
+    --container-width: 1200px;
+    --section-padding: 80px 0;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.3);
+    
+    /* Border Radius */
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+}
+
+/* ========================================
+   LAYOUT SYSTEM
+   Container and grid utilities
+   ========================================= */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   TYPOGRAPHY
+   Heading and text styles
+   ========================================= */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--primary-blue);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    margin-top: calc(var(--spacing-lg) * -1);
+    margin-bottom: var(--spacing-xl);
+}
+
+.lead {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ========================================
+   BUTTONS
+   Reusable button styles
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--accent-red);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(213, 10, 10, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-blue);
+}
+
+.btn-large {
+    padding: 20px 50px;
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   Spacing, visibility, and helpers
+   ========================================= */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.hidden { display: none; }
+.visible { display: block; }
+
+/* ========================================
+   SECTION BACKGROUNDS
+   Reusable section styles
+   ========================================= */
+section {
+    position: relative;
+}
+
+.section-white {
+    background: var(--white);
+}
+
+.section-gray {
+    background: var(--light-gray);
+}
+
+.section-blue {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #003366 100%);
+    color: var(--white);
+}
+
+.section-red {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+/* ========================================
+   ANIMATIONS & KEYFRAMES
+   Reusable animation utilities
+   ========================================= */
+.fade-in {
+    animation: fadeIn 0.6s ease-in forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   Mobile-first media queries
+   ========================================= */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    :root {
+        --section-padding: 60px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+    
+    :root {
+        --section-padding: 40px 0;
+    }
+}
+
+/* ========================================
+   COMPONENT PLACEHOLDERS
+   Base styles for components to be built
+   ========================================= */
+
+/* Navigation - to be expanded */
+.navbar {
+    /* Styles will be added in next phase */
+}
+
+/* Hero - to be expanded */
+.hero {
+    /* Styles will be added in next phase */
+}
+
+/* Stats Banner - to be expanded */
+.stats-banner {
+    /* Styles will be added in next phase */
+}
+
+/* Comparison Slider - to be expanded */
+.comparison-slider-section {
+    /* Styles will be added in next phase */
+}
+
+/* Key Findings - to be expanded */
+.key-findings {
+    /* Styles will be added in next phase */
+}
+
+/* Injury Selector - to be expanded */
+.injury-selector-section {
+    /* Styles will be added in next phase */
+}
+
+/* Timeline - to be expanded */
+.timeline-section {
+    /* Styles will be added in next phase */
+}
+
+/* Tech Showcase - to be expanded */
+.tech-showcase {
+    /* Styles will be added in next phase */
+}
+
+/* Research Overview - to be expanded */
+.research-overview {
+    /* Styles will be added in next phase */
+}
+
+/* CTA Section - to be expanded */
+.cta-section {
+    /* Styles will be added in next phase */
+}
+
+/* Footer - to be expanded */
+.footer {
+    /* Styles will be added in next phase */
+}
+
+/* Modal - to be expanded */
+.modal {
+    display: none;
+    /* Styles will be added in next phase */
+}

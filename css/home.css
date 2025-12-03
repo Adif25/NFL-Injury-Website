@@ -1,0 +1,922 @@
+/* ========================================
+   HOME PAGE STYLES
+   Section-specific styles for index.html
+   ========================================= */
+
+/* ========================================
+   NAVIGATION
+   ========================================= */
+.navbar {
+    background: var(--primary-blue);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 1.5px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    margin: 0;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background: var(--primary-red);
+}
+
+/* ========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: 
+        linear-gradient(135deg, rgba(213, 10, 10, 0.08) 0%, transparent 60%),
+        linear-gradient(135deg, var(--primary-blue) 0%, #003366 100%);
+    color: var(--white);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Hero Vignette Effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+}
+
+.hero-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.03) 0px,
+            transparent 1px,
+            transparent 40px,
+            rgba(255, 255, 255, 0.03) 41px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.03) 0px,
+            transparent 1px,
+            transparent 40px,
+            rgba(255, 255, 255, 0.03) 41px
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.95;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0.8;
+}
+
+.scroll-indicator span {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: rotate(45deg);
+    margin: 0 auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(45deg);
+    }
+    40% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+    60% {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
+
+/* ========================================
+   STATS BANNER
+   ========================================= */
+.stats-banner {
+    background: var(--primary-red);
+    padding: var(--spacing-2xl) 0;
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.stat-card {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.stat-description {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   COMPARISON SECTION
+   ========================================= */
+.comparison-section {
+    padding: var(--spacing-2xl) 0;
+    background: 
+        linear-gradient(180deg, rgba(0, 102, 204, 0.02) 0%, transparent 100%),
+        var(--light-gray);
+    position: relative;
+}
+
+.comparison-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.comparison-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comparison-nfl .card-header {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.comparison-nonpro .card-header {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+.card-header h3 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: inherit;
+}
+
+.card-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: var(--spacing-lg);
+}
+
+.comparison-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comparison-list li {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.comparison-list li:last-child {
+    border-bottom: none;
+}
+
+.comparison-list .icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.comparison-list strong {
+    display: block;
+    color: var(--primary-blue);
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.comparison-list p {
+    margin: 0;
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   KEY FINDINGS
+   ========================================= */
+.key-findings {
+    padding: var(--spacing-2xl) 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(213, 10, 10, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.03) 0%, transparent 50%),
+        var(--white);
+    position: relative;
+}
+
+/* Findings Section Decorative Grid */
+.key-findings::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, rgba(0, 0, 0, 0.01) 1px, transparent 1px),
+        linear-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.finding-card {
+    background: var(--white);
+    border: 2px solid var(--light-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    transition: all var(--transition-base);
+    /* JS will add scroll-triggered animations */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.finding-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.finding-card:hover {
+    border-color: var(--primary-red);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.finding-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.finding-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+}
+
+.finding-card p {
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.finding-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.stat-mini {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: var(--light-gray);
+    border-radius: var(--radius-sm);
+}
+
+.stat-mini .stat-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary-red);
+    margin-bottom: 4px;
+}
+
+.stat-mini .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--dark-gray);
+    letter-spacing: 0.5px;
+}
+
+.finding-highlight {
+    background: var(--primary-red);
+    color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: var(--spacing-md);
+}
+
+.finding-highlight strong {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.finding-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-md);
+}
+
+.finding-list li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    border-left: 3px solid var(--primary-blue);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.finding-comparison {
+    background: var(--light-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-md);
+}
+
+.compare-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.compare-label {
+    font-weight: 600;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+.compare-value {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: var(--spacing-xs) 0;
+}
+
+.compare-value.nfl {
+    color: var(--primary-blue);
+}
+
+.compare-value.nonpro {
+    color: var(--primary-red);
+}
+
+.findings-cta {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* ========================================
+   FOOTER
+   ========================================= */
+.footer {
+    background: 
+        linear-gradient(135deg, var(--primary-blue) 0%, #001a3d 100%);
+    color: var(--white);
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Footer Decorative Pattern */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+/* Footer Football Icon */
+.footer::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cellipse cx='12' cy='12' rx='9' ry='6' fill='white'/%3E%3Cline x1='12' y1='6' x2='12' y2='18' stroke='%23002244' stroke-width='0.5'/%3E%3Cline x1='9' y1='10' x2='15' y2='10' stroke='%23002244' stroke-width='0.3'/%3E%3Cline x1='9' y1='12' x2='15' y2='12' stroke='%23002244' stroke-width='0.3'/%3E%3Cline x1='9' y1='14' x2='15' y2='14' stroke='%23002244' stroke-width='0.3'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a,
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    opacity: 0.9;
+}
+
+.footer-links a:hover,
+.footer-section a:hover {
+    color: var(--primary-red);
+    opacity: 1;
+}
+
+.footer-year {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.social-links {
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--secondary-blue);
+    font-weight: 600;
+    transition: color var(--transition-base);
+}
+
+.social-links a:hover {
+    color: var(--accent-red);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: var(--spacing-md);
+    }
+    
+    .nav-menu a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        min-height: 80vh;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .findings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: var(--spacing-md) 0;
+    }
+}
+
+/* ========================================
+   ANIMATIONS & KEYFRAMES
+   ========================================= */
+
+/* Page Transitions */
+body {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+body.page-transitioning {
+    opacity: 0;
+}
+
+/* Navbar Scroll Effect */
+.navbar {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(0, 34, 68, 0.98);
+}
+
+/* Stat Cards Animation */
+.stat-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 102, 204, 0.25);
+}
+
+/* Comparison Card Decorative Element */
+.comparison-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.05;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.comparison-nfl::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230066cc'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+}
+
+.comparison-nonpro::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D50A0A'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
+}
+
+/* Comparison Cards Animation */
+.comparison-card {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+}
+
+.comparison-card.comparison-nonpro {
+    transform: translateX(40px);
+}
+
+.comparison-card.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.comparison-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.comparison-list li {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.comparison-list li:hover {
+    transform: translateX(6px);
+    background-color: rgba(0, 102, 204, 0.05);
+}
+
+.comparison-list .icon {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.comparison-list li:hover .icon {
+    transform: scale(1.3) rotate(5deg);
+}
+
+/* Finding Cards Animation */
+.finding-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.finding-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.finding-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(213, 10, 10, 0.2);
+}
+
+/* Finding Icon Glow Effect */
+.finding-icon {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+.finding-icon.glow {
+    transform: scale(1.2) rotate(10deg);
+    text-shadow: 0 0 20px rgba(213, 10, 10, 0.6),
+                 0 0 30px rgba(213, 10, 10, 0.4);
+}
+
+.finding-card:hover .finding-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Button Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(213, 10, 10, 0.3);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 6px 20px rgba(213, 10, 10, 0.5);
+    }
+}
+
+.btn-primary:hover {
+    animation: pulse 1.5s infinite;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* Hero Animation */
+.hero-title {
+    animation: slideInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.hero-subtitle {
+    animation: slideInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.hero-cta {
+    animation: slideInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stats Number Animation Enhancement */
+.stat-number {
+    transition: color 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+    color: var(--accent-red);
+    text-shadow: 0 2px 12px rgba(213, 10, 10, 0.3);
+}
+
+/* Card Badge Animation */
+.card-badge {
+    transition: all 0.3s ease;
+}
+
+.comparison-card:hover .card-badge {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth Section Fade-In */
+.section-title {
+    animation: fadeInScale 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Racing Bar Animation (for future use) */
+[data-bar-width] {
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Link Hover Effects */
+a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+    transform: translateX(4px);
+}
+
+/* GPU Acceleration for Smooth Performance */
+.stat-card,
+.comparison-card,
+.finding-card,
+.btn {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
